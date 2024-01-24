@@ -1,0 +1,153 @@
+﻿@model LOGIN3.Models.LoginViewModel
+    @*@{
+    ViewBag.Title =Model;
+}*@
+
+<html>
+<head>
+    <style>
+       /* body {
+            background-image: radial-gradient(circle, #5c0067 0%, #00d4ff 100%);
+        }*/
+
+        .row {
+            padding-left: 3%;
+            padding-right: 3%;
+            padding-top: 3%;
+            padding-bottom: 3%;
+        }
+
+        #container {
+            /*background-image: linear-gradient( 109.6deg, rgba(156,252,248,1) 11.2%, rgba(110,123,251,1) 91.1% );*/
+        }
+
+
+
+        input:hover {
+            border-radius: 40px;
+            box-shadow: 2px 2px 14px #5AB0DB;
+        }
+
+        #phone {
+            padding-right: 100px;
+            padding-left: 52px;
+            margin-left: 0;
+        }
+
+        .card {
+            border-radius: 3px 30px 3px 30px;
+            background-color: #808080;
+            padding: 10px 10px 10px 10px;
+            border-color: black;
+        }
+
+        #btnsubmit {
+            align-items: center;
+            border-radius: 10px 10px 10px 10px;
+        }
+
+        #images {
+            align-items: center;
+            height: 150px;
+            width: 150px;
+            justify-content: center;
+            display: flex;
+            border-radius: 20px 20px 20px 20px;
+            border-width: 2px;
+            padding: 20px 20px 40px 20px;
+        }
+
+        img {
+            align-items: center;
+            height: 150px;
+            width: 150px;
+            justify-content: center;
+            display: flex;
+            padding: 20px 20px 20px 20px;
+            margin: 20px 20px 20px 20px;
+            border-radius: 20px 20px 20px 20px;
+            border-width: 2px;
+            /*height: 50px;
+                    width: 50px;
+                    text-align:center;
+                    max-width: 50%;
+                    max-height:50%;
+                    justify-content: center;
+                    display: flex;*/
+        }
+        #anchor {
+        
+        color:black;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    @*<link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>*@
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <form method="post" id="login">
+        <div class="container" id="container">
+            <div class="row mt-5 mb-5 ">
+                <div class="col-md-4 mx-auto">
+                    <div class="card ">
+                        <div class="card-body">
+                            <div class="form-group" id="images">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Overwatch_circle_logo.svg">
+                            </div>
+                            <div class="form-group">
+                                <label for="userName">USERNAME</label>
+                                <input class="form-control" type="text" id="userName" name="Username" @*value="@(Model.logindto.Username != null ? Model.logindto.Username : "")"*@>
+                            </div>
+                            @* <div class="form-group">
+                                <label for="email">EMAIL</label>
+                                <input class="form-control" type="email" id="email" name="email" placeholder="name@email.com" required >
+                                </div>
+                                <div class="form-group">
+                                <label for="phone">PHONE</label>
+                                <input class="form-control" type="tel" id="phone" name="phone" maxlength="10">
+                                </div>*@
+                            <div class="form-group">
+                                <label for="passWord">PASSWORD</label>
+                                <input class="form-control" type="text" id="passWord" name="Password" @*value="@(Model.logindto.Password != null ? Model.logindto.Password : "")"*@>
+                            </div>
+                            <div id="anchor">
+                                @Html.ActionLink("New Registration", "NewRegistration", "LOGIN", null, null, "MINE", null, new { style="color:black"})
+                                </div>
+                            <div class="form-group">
+                                <label class="col-md-8"></label>
+                                <button class=" btn btn-group btn-success btn-sm-4 mt-4" type="button" id="btnsubmit" name="btnsubmit">LOGIN</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    @*<script src="/lib/jquery/dist/jquery.js"></script>
+        <script src="/lib/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="/js/login.js"></script*@>
+    @*<script>
+        const phoneInputField = document.querySelector("#phone");
+        const phoneInput = window.intlTelInput(phoneInputField, {
+        utilsScript:
+        "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+        });
+        </script>*@
+
+    <script>
+        var registrationurl= '@(Url.Action("NewRegistration", "LOGIN"))'
+    </script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/LOGIN")
+
+</body>
+
+</html>
+
