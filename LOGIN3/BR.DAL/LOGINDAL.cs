@@ -28,7 +28,7 @@ namespace LOGIN3.DAL
 
         }
 
-        public void RegistrationAdd(string firstName, string lastName, string email, string phoneNumber, string passWord)
+        public void RegistrationAdd(string firstName, string lastName, string email, string phoneNumber, string passWord,DateTime DOB)
         {
 
             SqlConnection conn = new SqlConnection("Data Source=SHANS-7799;Initial Catalog=LOGIN;Integrated Security=True");
@@ -40,6 +40,7 @@ namespace LOGIN3.DAL
             cmd.Parameters.AddWithValue("Email", email);
             cmd.Parameters.AddWithValue("Phone", phoneNumber);
             cmd.Parameters.AddWithValue("Password", passWord);
+            cmd.Parameters.AddWithValue("DOB", DOB);
 
 
 
@@ -54,6 +55,19 @@ namespace LOGIN3.DAL
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("Username", useName);
             cmd.Parameters.AddWithValue("Password", passWord);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(dt);
+            return dt;
+
+
+        }
+        public DataTable fetchuRegsiter(string email,DataTable dt)
+        {
+            SqlConnection conn = new SqlConnection("Data Source=SHANS-7799;Initial Catalog=LOGIN;Integrated Security=True");
+            SqlCommand cmd = new SqlCommand("RegisterFETCH", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("Email", email);
+            
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             adapter.Fill(dt);
             return dt;

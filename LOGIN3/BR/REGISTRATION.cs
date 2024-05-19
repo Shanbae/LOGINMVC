@@ -2,6 +2,7 @@
 using Microsoft.Ajax.Utilities;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
@@ -21,6 +22,7 @@ namespace LOGIN3.BR
         public string Password { get; set; }
 
         public string Phonenumber { get; set; }
+        public DateTime DOB { get; set; }
 
 
         public REGISTRATION Register(REGISTRATION reg)
@@ -35,11 +37,19 @@ namespace LOGIN3.BR
         }
         public void AddRegistration(REGISTRATION reg)
         {
+            DataTable dt = null;
             LOGINDAL lOGINDAL = new LOGINDAL();
+            lOGINDAL.fetchuRegsiter(reg.Email, dt);
+            if (dt.Rows.Count>0)
+            { 
+            
+            
+            }
+            else
+            {
+                lOGINDAL.RegistrationAdd(reg.Firstname, reg.Lastname, reg.Email, reg.Phonenumber, reg.Password, reg.DOB);
 
-            lOGINDAL.RegistrationAdd(reg.Firstname, reg.Lastname, reg.Email, reg.Phonenumber, reg.Password);
-
-
+            }
 
 
         }

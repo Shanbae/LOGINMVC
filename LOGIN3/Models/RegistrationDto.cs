@@ -15,6 +15,7 @@ namespace LOGIN3.Models
         public string Email { get; set; }
         public string ConfirmPassword { get; set; }
         public string PhoneNumber { get; set; }
+        public DateTime DOB { get; set; }
 
         public REGISTRATION ToEntity(RegistrationDto dto)
         {
@@ -27,6 +28,7 @@ namespace LOGIN3.Models
                 entity.Email = Email;   
                     entity.Password = ConfirmPassword;
                     entity.Phonenumber=PhoneNumber;
+                    entity.DOB=DOB;
 
             }
             return entity;
