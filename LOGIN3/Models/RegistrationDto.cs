@@ -17,6 +17,9 @@ namespace LOGIN3.Models
         public string PhoneNumber { get; set; }
         public DateTime DOB { get; set; }
 
+        //public List<byte> ImgData { get; set; }
+        public string ImgData { get; set; }
+        
         public REGISTRATION ToEntity(RegistrationDto dto)
         {
             REGISTRATION entity = new REGISTRATION();
@@ -29,6 +32,7 @@ namespace LOGIN3.Models
                     entity.Password = ConfirmPassword;
                     entity.Phonenumber=PhoneNumber;
                     entity.DOB=DOB;
+                entity.ByteImgData = Convert.FromBase64String(dto.ImgData); ;
 
             }
             return entity;

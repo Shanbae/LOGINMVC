@@ -49,12 +49,19 @@ namespace LOGIN3.Controllers.Api
         [Route("api/Loginapi/Register")]
         public HttpResponseMessage Register(RegistrationDto dto)
         {
-
+           // dto.ImgbyteData = dto.ImgbyteData.ToArray();
+            
             var entity = dto.ToEntity(dto);
-
+           // byte[] grrg = ; 
             var result = _rEGISTRATIONSERVICE.Register(entity);
 
             return Request.CreateResponse(HttpStatusCode.OK, "")/*.new HttpResponseMessage(HttpStatusCode.OK,result)*/;
         }
+        //[HttpPost]
+        //[Route("api/Loginapi/Webcam")]
+        //public HttpResponseMessage Webcam([FromBody] byte[] data)
+        //{
+        //    return null;
+        //}
     }
 }

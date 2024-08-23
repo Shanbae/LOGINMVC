@@ -1,6 +1,7 @@
 ﻿using LOGIN3.DAL;
 using Microsoft.Ajax.Utilities;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -23,6 +24,8 @@ namespace LOGIN3.BR
 
         public string Phonenumber { get; set; }
         public DateTime DOB { get; set; }
+
+        public byte[] ByteImgData { get; set; }
 
 
         public REGISTRATION Register(REGISTRATION reg)
@@ -47,7 +50,7 @@ namespace LOGIN3.BR
             }
             else
             {
-                lOGINDAL.RegistrationAdd(reg.Firstname, reg.Lastname, reg.Email, reg.Phonenumber, reg.Password, reg.DOB);
+                lOGINDAL.RegistrationAdd(reg.Firstname, reg.Lastname, reg.Email, reg.Phonenumber, reg.Password, reg.DOB, reg.ByteImgData);
 
             }
 
@@ -78,6 +81,25 @@ namespace LOGIN3.BR
             {
                 //textBox1.Text = e.Message;
             }
+
+
+        }
+        public DataTable GetStates() 
+        {
+            DataTable dt = null;
+            LOGINDAL lOGINDAL = new LOGINDAL();
+            dt= lOGINDAL.FetchAllStates(dt);
+            return dt;
+ 
+        }
+        public DataTable GetDistricts()
+        {
+            DataTable dt = null;
+            LOGINDAL lOGINDAL = new LOGINDAL();
+            dt = lOGINDAL.FetchAllDistricts(dt);
+            return dt;
+
+
 
 
         }

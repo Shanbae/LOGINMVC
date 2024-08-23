@@ -3,6 +3,7 @@ using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
+using System.Web.Helpers;
 using SqlCommand = System.Data.SqlClient.SqlCommand;
 using SqlConnection = System.Data.SqlClient.SqlConnection;
 using SqlDataAdapter = System.Data.SqlClient.SqlDataAdapter;
@@ -28,7 +29,7 @@ namespace LOGIN3.DAL
 
         }
 
-        public void RegistrationAdd(string firstName, string lastName, string email, string phoneNumber, string passWord,DateTime DOB)
+        public void RegistrationAdd(string firstName, string lastName, string email, string phoneNumber, string passWord,DateTime DOB, byte[] ImageData)
         {
 
             SqlConnection conn = new SqlConnection("Data Source=SHANS-7799;Initial Catalog=LOGIN;Integrated Security=True");
@@ -41,6 +42,7 @@ namespace LOGIN3.DAL
             cmd.Parameters.AddWithValue("Phone", phoneNumber);
             cmd.Parameters.AddWithValue("Password", passWord);
             cmd.Parameters.AddWithValue("DOB", DOB);
+            cmd.Parameters.AddWithValue("ImageData", ImageData);
 
 
 
@@ -75,6 +77,28 @@ namespace LOGIN3.DAL
 
         }
 
+        public DataTable FetchAllStates(DataTable dt)         
+        {
+            dt = new DataTable();
+            SqlConnection conn = new SqlConnection("Data Source=SHANS-7799;Initial Catalog=LOGIN;Integrated Security=True");
+            SqlCommand cmd = new SqlCommand("FetchAllStates", conn);
+            cmd.CommandType = CommandType.StoredProcedure;            
+
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(dt);
+            return dt;
+        }
+        public DataTable FetchAllDistricts(DataTable dt)
+        {
+            dt = new DataTable();
+            SqlConnection conn = new SqlConnection("Data Source=SHANS-7799;Initial Catalog=LOGIN;Integrated Security=True");
+            SqlCommand cmd = new SqlCommand("FetchAllDistricts", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(dt);
+            return dt;
+        }
 
     }
 }

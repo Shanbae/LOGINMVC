@@ -1,8 +1,10 @@
+using LOGIN3.BR;
 using LOGIN3.SERVICE;
 using LOGIN3.SERVICE.Iservices;
-using System.Web.Http;
+using System.Runtime.InteropServices;
+using System.Web.Mvc;
 using Unity;
-using Unity.WebApi;
+using Unity.Mvc5;
 
 namespace LOGIN3
 {
@@ -18,7 +20,8 @@ namespace LOGIN3
             // e.g. container.RegisterType<ITestService, TestService>();
             container.RegisterType<ILOGINSERVICE, LOGINService>();
             container.RegisterType<IREGISTRATIONSERVICE, LOGINService>();
-            GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
+            container.RegisterType<ISTATESERVICE, Stateservice>();
+            DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
     }
 }

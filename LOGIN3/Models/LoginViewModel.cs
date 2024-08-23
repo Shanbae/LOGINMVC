@@ -12,13 +12,14 @@ namespace LOGIN3.Models
     {
         public LoginDto logindto { get; set; }
        // public LoginViewModel LoginViewModel { get; set; }
-
+       public EducationDetails  education{ get; set; }
         public LoginViewModel()
         {
             logindto = new LoginDto(
 
 
                 );
+            education = new EducationDetails( );
             //LoginViewModel = new LoginViewModel(logindto.Id);
         }
     }

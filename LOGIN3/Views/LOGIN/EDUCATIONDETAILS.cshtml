@@ -1,0 +1,327 @@
+﻿@model LOGIN3.Models.LoginViewModel
+@{
+    ViewBag.Title = "EDUCATIONDETAILS";
+}
+
+<html>
+<head>
+    <style>
+        .card-body {
+        }
+
+        /*.container {
+            background-color: mediumseagreen;
+        }*/
+        body {
+            /*background-image: radial-gradient(circle, #5c0067 0%, #00d4ff 100%);*/
+            /* background-image: url('../images/modern-building-with-skyscrapers_993599-7651.jpg');*/
+        }
+
+        .card {
+            background-color: rgba(255,255,255, 0.2) !important;
+            border-radius: 3px 30px 3px 30px;
+            background-color: #808080;
+            padding: 10px 10px 10px 10px;
+            border-color: black;
+        }
+
+        p {
+            color: red
+        }
+
+        label {
+            color: black;
+            padding-block: auto;
+            display: inline-block; /* Ensures the label is treated like a block element for proper transformation */
+            transition: transform 0.3s ease-in-out; /* Smooth transition for the rotation */
+            animation: rotateLabel 2s linear infinite;
+        }
+       
+
+            label:hover {
+                transform: rotate(15deg); /* Rotates the label by 15 degrees when hovered */
+            }
+        /*.row {
+        padding-left: 2%;
+        padding-right: 2%;
+        padding-top: 2%;
+        padding-bottom: 2%;
+        }*/
+        input:hover, select:hover {
+            border-radius: 40px;
+            box-shadow: 2px 2px 14px black;
+        }
+        input, select {
+            border-radius: 20px 20px 20px 20px;
+            border-width: 2px;
+            box-shadow: 2px 2px 14px black;
+        }
+        #SSLCAverage {
+            color:gray;
+            background-color:#9a9a9a;
+        }
+        /* .collapse .show-icon {
+            display: none;
+        }
+
+        .collapse.show .hide-icon {
+            display: none;
+        }
+
+        .collapse.show .show-icon {
+            display: inline;
+        }*/
+    </style>
+    @* <style>
+        body {
+        background-image: radial-gradient(circle, #5c0067 0%, #00d4ff 100%);
+        }
+
+        .row {
+        padding-left: 3%;
+        padding-right: 3%;
+        padding-top: 3%;
+        padding-bottom: 3%;
+        }
+
+        #container {
+        /*background-image: linear-gradient( 109.6deg, rgba(156,252,248,1) 11.2%, rgba(110,123,251,1) 91.1% );*/
+        }
+
+        #Firstname, #Lastname, #passWord, #phone {
+        border-radius: 20px 20px 20px 20px;
+        border-width: 2px;
+        }
+
+        input:hover {
+        border-radius: 40px;
+        box-shadow: 2px 2px 14px #5AB0DB;
+        }
+
+        #phone {
+        padding-right: 100px;
+        padding-left: 52px;
+        margin-left: 0;
+        }
+
+        .card {
+        border-radius: 3px 30px 3px 30px;
+        background-color: #808080;
+        padding: 10px 10px 10px 10px;
+        border-color: black;
+        }
+
+        .card-body {
+        border-radius: 3px 30px 3px 30px;
+        background-color: #808080;
+        padding: 10px 10px 10px 10px;
+        border-color: black;
+        }
+
+        #btnsubmit {
+        align-items: center;
+        border-radius: 10px 10px 10px 10px;
+        }
+
+        #images {
+        align-items: center;
+        height: 150px;
+        width: 150px;
+        justify-content: center;
+        display: flex;
+        border-radius: 20px 20px 20px 20px;
+        border-width: 2px;
+        padding: 20px 20px 40px 20px;
+        }
+
+        img {
+        align-items: center;
+        height: 150px;
+        width: 150px;
+        justify-content: center;
+        display: flex;
+        padding: 20px 20px 20px 20px;
+        margin: 20px 20px 20px 20px;
+        border-radius: 20px 20px 20px 20px;
+        border-width: 2px;
+        /*height: 50px;
+        width: 50px;
+        text-align:center;
+        max-width: 50%;
+        max-height:50%;
+        justify-content: center;
+        display: flex;*/
+        }
+
+        </style>*@
+</head>
+<body>
+    @*<img src="/Views/Images/pexels-pixabay-531880.jpg">*@
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6">
+                @*<img src="https://images.pexels.com/photos/4403172/pexels-photo-4403172.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">*@
+            </div>
+
+            @*<div class="">*@
+            <form id="eduDetails">
+                <div class="card transparent-card">
+
+                    <div class="card-header">
+                        <a class="btn btn-primary" role="button" data-toggle="collapse" data-target="#SSLC"
+                           aria-expanded="false" aria-controls="SSLC">
+                            SSLC DETAILS
+                        </a>
+                    </div>
+
+                    <div id="SSLC" class="collapse">
+                        <div class="card-body ">
+                            <div class="row">
+
+                                <div class="col-md-4">
+                                    <label for="IsSslc" class="col-form-label">Mark Awarded</label>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="SSLCmark" name="SSLCmark">
+                                        <div id="SSLCerror"><p> </p></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="IsSslc" class="col-form-label">Total Marks</label>
+                                    <div class="form-group ">
+                                        <input type="text" class="form-control" id="SSLCTotalMark" name="SSLCTotalMark">
+                                        <div id="SSLCerror"><p> </p></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="IsSslc" class="col-form-label">Average</label>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="SSLCAverage" name="SSLCAverage" disabled="disabled">
+                                        <div id="SSLCerror"><p> </p></div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label for="StatesID" class="col-form-label">State</label>
+                                    <div class="form-group">
+                                        @Html.DropDownList("StatesID", Model.education.StatesSelectList, "Select State", new { @class = "form-control" })
+                                        <div id="LastNameerror"><p> </p></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="DistrictID" class="col-form-label">District</label>
+                                    <div class="form-group">
+                                        <select id="DistrictID" class="form-control" name="DistrictID">
+                                            <option value="">Select District</option>
+                                            @foreach (var district in Model.education.DistrictSelectList)
+                                            {
+                                                <option value="@district.DistrictID" data-stateid=@district.DistrictStateID>@district.DistrictName</option>
+
+                                            }
+
+                                        </select>
+                                        @*@Html.DropDownList("DistrictID", Model.education.DistrictSelectList, "Select District", new { @class = "form-control" } )*@
+                                        <div id="LastNameerror"><p> </p></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label for="SchoolName" class="col-form-label">School Name</label>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="SchoolName" name="SchoolName">
+                                        <div id="LastNameerror"><p> </p></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label for="CompletionDate" class="col-form-label">Date</label>
+                                    <div class="form-group">
+                                        <input class="form-control" type="date" id="CompletionDate" name="CompletionDate" required>
+                                        <div id="doberror"><p> </p></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                                </div>
+                            </div>
+                    @*<div class="row mb-4">*@
+                    @*<label for="email" class="col-sm-4">EMAIL</label>
+                            <div class="form-group col-sm-6">
+                                <input class="form-control" type="email" id="Email" name="Email" placeholder="name@email.com" required>
+                                <div id="Emailerror"><p> </p></div>
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <label for="phone" class="col-sm-4">PHONE</label>
+                            <div class="form-group col-sm-6">
+                                <input class="form-control" type="tel" id="phone" name="PhoneNumber" maxlength="10">
+                                <div id="PhoneNumbererror"><p> </p></div>
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <label for="RegistrationPassword" class="col-sm-4">Password</label>
+                            <div class="form-group col-sm-6">
+                                <input type="text" class="form-control" id="RegistrationPassword">
+                                <div id="RegistrationPassworderror"><p> </p></div>
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <label for="ConfirmPassword" class="col-sm-4">Confirm Password</label>
+                            <div class="form-group col-sm-6">
+                                <input type="text" class="form-control" id="ConfirmPassword" name="ConfirmPassword">
+                                <div id="ConfirmPassworderror"><p> </p></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-8"></label>
+                            <button class=" btn btn-group btn-success btn-sm-4 mt-4" type="button" id="btnNext1" name="btnNext1">SUBMIT</button>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-8"></label>
+                            <button class=" btn btn-group btn-success btn-sm-4 mt-4" type="button" id="btnCamera" name="btnCamera">OPEN WEBCAM</button>
+
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-8"></label>
+                            <button class=" btn btn-group btn-success btn-sm-4 mt-4" type="button" id="btnCapture" name="btnCapture">CAPTURE</button>
+                            <div id="webcam"></div>
+                            <img id="imgCapture" />
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-8"></label>
+                            <button class=" btn btn-group btn-danger btn-sm-4 mt-4" type="button" id="btnImgDelete" name="btnImgDelete" disabled="disabled">DELETE IMAGE</button>
+
+                        </div>*@
+                    @*</input>*@
+                </div>
+
+
+
+            </form>
+        </div>
+        @*</div>*@
+    </div>
+
+
+
+    @*<script>
+            var registrationurl= '@(Url.Action("NewRegistration", "LOGIN"))'
+        </script>*@
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/REGISTRATION")
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.26/webcam.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+

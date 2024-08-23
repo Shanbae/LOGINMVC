@@ -138,6 +138,7 @@
                 <form id="newRegistration" class="">
                     <div class="card transparent-card mb-5">
                         <div class="card-body ">
+                            <input type="hidden" name="ImgData" id="ImgData">
                             <div class="row mb-4">
                                 <label for="Firstname" class="col-sm-4">First name</label>
                                 <div class="form-group col-sm-6">
@@ -189,7 +190,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="col-md-8"></label>
-                                <button class=" btn btn-group btn-success btn-sm-4 mt-4" type="button" id="btnregsubmit" name="btnregsubmit">SUBMIT</button>
+                                <button class=" btn btn-group btn-success btn-sm-4 mt-4" type="button" id="btnNext1" name="btnNext1">NEXT</button>
                             </div>
 
                             <div class="form-group">
@@ -208,7 +209,7 @@
                                 <button class=" btn btn-group btn-danger btn-sm-4 mt-4" type="button" id="btnImgDelete" name="btnImgDelete" disabled="disabled">DELETE IMAGE</button>
 
                             </div>
-                        </div>
+                        </input>
                     </div>
 
 
@@ -227,7 +228,11 @@
    
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.26/webcam.js"></script>
-   
+    <script>
+ var nextAction='@Url.Action("EducationDetails", "LOGIN")'
+
+
+    </script>
 </body>
 </html>
 

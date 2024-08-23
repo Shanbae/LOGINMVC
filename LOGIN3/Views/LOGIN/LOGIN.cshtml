@@ -20,6 +20,19 @@
         #container {
             /*background-image: linear-gradient( 109.6deg, rgba(156,252,248,1) 11.2%, rgba(110,123,251,1) 91.1% );*/
         }
+/*        @@keyframes sway {
+    0%, 100% {
+        border-width: 5px 5px 15px 5px;
+    }
+    50% {
+        border-width: 5px 15px 5px 15px;
+    }
+}
+
+.sway-border {
+    border: 5px solid #3498db;
+    animation: sway 2s infinite;
+}*/
 
 
 
@@ -36,9 +49,12 @@
 
         .card {
             border-radius: 3px 30px 3px 30px;
-            background-color: #808080;
+            background-color: transparent;
             padding: 10px 10px 10px 10px;
-            border-color: black;
+            border-color: olivedrab;
+            animation: sway 5s ease-in-out infinite;
+            border-width:medium;
+            
         }
 
         #btnsubmit {
@@ -76,9 +92,32 @@
                     display: flex;*/
         }
         #anchor {
-        
+
         color:black;
         }
+
+       /* @@keyframes sway {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            25% {
+                transform: rotate(2deg);
+            }
+
+            50% {
+                transform: rotate(0deg);
+            }
+
+            75% {
+                transform: rotate(-2deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+        }*/
+
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     @*<link rel="stylesheet"
@@ -91,12 +130,12 @@
             <div class="row mt-5 mb-5 ">
                 <div class="col-md-4 mx-auto">
                     <div class="card ">
-                        <div class="card-body">
+                        <div class="card-body sway-border">
                             <div class="form-group" id="images">
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Overwatch_circle_logo.svg">
                             </div>
                             <div class="form-group">
-                                <label for="userName">USERNAME</label>
+                                <label for="userName" style="color:aqua;background-color:black">USERNAME</label>
                                 <input class="form-control" type="text" id="userName" name="Username" @*value="@(Model.logindto.Username != null ? Model.logindto.Username : "")"*@>
                             </div>
                             @* <div class="form-group">
@@ -108,7 +147,7 @@
                                 <input class="form-control" type="tel" id="phone" name="phone" maxlength="10">
                                 </div>*@
                             <div class="form-group">
-                                <label for="passWord">PASSWORD</label>
+                                <label for="passWord" style="color:aqua;background-color:black">PASSWORD</label>
                                 <input class="form-control" type="text" id="passWord" name="Password" @*value="@(Model.logindto.Password != null ? Model.logindto.Password : "")"*@>
                             </div>
                             <div id="anchor">

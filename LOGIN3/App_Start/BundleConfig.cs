@@ -28,8 +28,7 @@ namespace LOGIN3
             bundles.Add(new ScriptBundle("~/bundles/LOGIN").Include(
                         "~/Scripts/app/views/login.js"));
             bundles.Add(new ScriptBundle("~/bundles/REGISTRATION").Include(
-                        "~/Scripts/app/views/registration.js",
-                        "~/Scripts/app/views/webcam.js"));
+                        "~/Scripts/app/views/registration.js"));
         }
     }
 }
